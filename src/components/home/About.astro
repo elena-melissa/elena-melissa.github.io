@@ -1,8 +1,12 @@
 ---
-import bio from '@/data/biografia.json'
 import { Icon } from 'astro-icon/components'
+import { Image } from 'astro:assets'
+import { getEntry } from 'astro:content'
 
-const { name, role, image, imageAlt } = bio
+const bio = await getEntry('biography', 'biography')
+
+if (!bio) throw new Error('No Bio Found')
+const { name, role, image, imageAlt } = bio!.data
 const bioAlt = imageAlt || `Retrato de ${name}`
 const initials = name
   .split(' ')
@@ -18,7 +22,8 @@ const initials = name
         <div class="relative bg-surface p-4 rounded shadow-[0_24px_48px_-12px_rgba(0,0,0,0.75)]">
           <div class="overflow-hidden rounded">
             {image ? (
-              <img
+              <Image
+                inferSize
                 alt={bioAlt}
                 src={image}
                 class="w-full h-auto object-cover aspect-[3/4] grayscale contrast(1.1) transition-transform duration-[700ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
