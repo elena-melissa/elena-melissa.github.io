@@ -9,7 +9,7 @@ import sitemap from '@astrojs/sitemap'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://melissa-eik.pages.dev',
+  site: 'https://elena-melissa.github.io',
 
   integrations: [
     sveltia({ config: cmsConfig, githubOAuth: false }),

@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages and Surge
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -6,14 +6,21 @@ on:
   repository_dispatch:
     types: [sveltia-cms-publish]
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
+  # ============================================
+  # JOB 1: BUILD
+  # ============================================
   build:
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: read
-      deployments: write
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -29,10 +36,32 @@ jobs:
       - name: Build Astro
         run: bun run build
 
-      - name: Publish to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          packageManager: npm
-          command: pages deploy ./dist --project-name=melissa --branch=main
+          path: ./dist
+
+  # ============================================
+  # JOB 2: DEPLOY
+  # ============================================
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+      #
+      # # ============================================
+      # # SECCIÓN: Deploy to Surge
+      # # ============================================
+      # - name: Deploy to Surge
+      #   uses: mahmoudgalalz/surge-action@v0.1.5
+      #   with:
+      #     domain: "melissa-portfolio.surge.sh"
+      #     path: "./dist"
+      #   env:
+      #     SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
