@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets'
 import { Icon } from 'astro-icon/components'
 import type { CollectionEntry } from 'astro:content'
 import GalleryCard from '../ui/GalleryCard.astro'
@@ -52,7 +53,8 @@ const others = artworks.filter((a) => a.id !== featuredId)
       >
         <div class="relative overflow-hidden aspect-[4/5] lg:aspect-auto lg:h-[68vh] lg:max-h-[720px] bg-surface">
           {featuredData.image ? (
-            <img
+            <Image
+              inferSize
               alt={'Obra ' + featuredData.title + ' por Melissa Gutiérrez'}
               src={featuredData.image}
               class="w-full h-full object-cover grayscale contrast(1.125) transition-transform duration-[700ms] ease-[cubic-bezier(0.16,1,0.3,1)]"

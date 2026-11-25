@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets'
 import { Icon } from 'astro-icon/components'
 import type { CollectionEntry } from 'astro:content'
 interface Props {
@@ -79,7 +80,8 @@ const artworkAlt = `Retrato hiperrealista en blanco y negro por ${title}`
       <div class="relative bg-surface-lowest p-4 md:p-6 rounded shadow-[0_24px_48px_-12px_rgba(0,0,0,0.75)]">
         <div class="relative bg-surface-low p-2 md:p-3 overflow-hidden rounded">
           {image ? (
-            <img
+            <Image
+              inferSize
               alt={artworkAlt}
               src={image}
               class="w-full h-auto object-cover aspect-[3/4] grayscale contrast-1.125 brightness-0.95"
