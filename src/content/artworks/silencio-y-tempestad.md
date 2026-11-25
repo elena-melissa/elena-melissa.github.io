@@ -18,6 +18,6 @@ curatorialStatement: >-
   mero recurso formal, sino como un catalizador dramático que arranca a la figura
   de la negrura absoluta del fondo, desnudando la mirada con una intensidad que
   desafía la distancia del espectador.
-image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBgy6DLtRRn7wA3dFmsNaMI2nDtn85zhpKon30WTwMyeo1HCLc4qsfe-fDYnc2vnNhTEdKbPcnw_p7_zPQHnOy_OBrkksMBeud-gKqKZGhe-gDnzFVycVcSl4QMHukGYE4P_KbFXNYCAOnhABTe1mfwmootgFCPJ8sp3ifKWZa7mPWOmAyj6Gh548_63xXRfktTYuepNZDqnpTO2nfz8-4wIDgMC9WPnjeky-n8clk'
+image: src/assets/uploads/silencio-y-tempestad.jpeg
 order: 1
 ---

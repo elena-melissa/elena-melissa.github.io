@@ -9,6 +9,6 @@ dimensions: 80 x 100
 availability: Colección privada
 description: Esto no se vende chama, esto es tremenda talla, tu no lo entenderias
 curatorialStatement: me cure
-image: /images/IMG-20261118-WA0004.jpg
+image: /src/assets/uploads/perro-riendo.jpeg
 order: 0
 ---

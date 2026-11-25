@@ -11,6 +11,6 @@ availability: 'Disponible'
 description: >-
   Pieza de la serie Memoria, ejecutada con carbón vegetal en barra y lápiz carbón
   conté.
-image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAXekDdVk6S2juNh0MSMcRrjS8-53NHLGvVxKMj3n8BMCJFQJJgsfF_ZTw861uQxeXuCHExFXOrf8lRRoCwv-bB5_71dw7sqdsqTDUP8r5QzCZjEMeDCmtv0D35UHaxfNONWfJEAayuc9VPsnhHd60SxndDFR5jPS0QpFfAfKAvmRxB9KgupZr-HO8WWWnUH6W76NvPMuRof8wSg1r9yqH_3bUWdRYHEBuSWkefi8k'
+image: src/assets/uploads/memoria-inextinguible.jpeg
 order: 4
 ---
