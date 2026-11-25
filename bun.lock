@@ -6,6 +6,7 @@
       "name": "melissa-porfolio",
       "dependencies": {
         "@iconify-json/mdi": "^1.2.3",
+        "@sourcepoetry/astro-sveltia": "^0.1.1",
         "@tailwindcss/vite": "^4.3.5",
         "astro": "^7.4.12",
         "astro-icon": "^1.2.0",
@@ -232,6 +233,10 @@
     "@shikijs/types": ["@shikijs/types@4.6.0", "", { "dependencies": { "@shikijs/vscode-textmate": "^10.1.0", "@types/hast": "^3.0.5" } }, "sha512-+ENG1adsKt/X7cRYw1Nl7BEpBmPOjmQ7bR/eGmHuMlT8gtOFf3KEi5l31DJYyAWhW6Y6bjP1plU7FmaxWGENFw=="],
 
     "@shikijs/vscode-textmate": ["@shikijs/vscode-textmate@10.1.0", "", {}, "sha512-cVBuhDQjBZaNMTwBquYfPydrUP+E3hE6oYGasx8h6ZrODIM7/r+gxLDXdd66oszbrggZHEntdE6j+5gYIVyMWQ=="],
+
+    "@sourcepoetry/astro-sveltia": ["@sourcepoetry/astro-sveltia@0.1.1", "", { "dependencies": { "@sveltia/cms": "^0.188.1" }, "peerDependencies": { "astro": "^7.0.0" } }, "sha512-j1t/RxDNRJ49hYTMLbg798hB0SXtQzM/uHFt8nEgR+sJnL8cbMLNrQq/10kEMS8QIw3fyhwryb1ySaXSt2TFQQ=="],
+
+    "@sveltia/cms": ["@sveltia/cms@0.188.1", "", {}, "sha512-SPQhCc6ejoNzx8cIBVoyoCcyltu+lEgSia3LdDH+UXwbunrT0HJ5GFaITwffXqERO8dekRCrvhoETMs7syJKFw=="],
 
     "@tailwindcss/node": ["@tailwindcss/node@4.3.5", "", { "dependencies": { "@jridgewell/remapping": "^2.3.5", "enhanced-resolve": "^5.24.5", "jiti": "^2.7.0", "lightningcss": "1.33.0", "magic-string": "^1.1.0", "source-map-js": "^1.2.1", "tailwindcss": "4.3.5" } }, "sha512-yT53FzV4ke0cr/BguDxhWMpm5MJu1O2muzk+tKw6lKHjODAsYArBbWwFbJiaksfzFv1tpkO9QHGzmfs1hJT66g=="],
 

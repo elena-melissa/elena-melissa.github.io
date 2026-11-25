@@ -1,11 +1,14 @@
 // @ts-check
 import { defineConfig, fontProviders } from 'astro/config'
 import tailwindcss from '@tailwindcss/vite'
+import sveltia from '@sourcepoetry/astro-sveltia'
 import icon from 'astro-icon'
+import { cmsConfig } from '@/cms/config'
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [
+    sveltia({ config: cmsConfig, githubOAuth: false }),
     icon({
       include: {
         // Solo incluye los iconos MDI que realmente usas
@@ -47,5 +50,9 @@ export default defineConfig({
         '@tailwindcss/postcss': {},
       },
     },
+  },
+  image: {
+    // Añade el dominio de las imágenes de Google aquí
+    domains: ['lh3.googleusercontent.com'],
   },
 })

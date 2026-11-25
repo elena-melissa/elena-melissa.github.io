@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@iconify-json/mdi": "^1.2.3",
+    "@sourcepoetry/astro-sveltia": "^0.1.1",
     "@tailwindcss/vite": "^4.3.5",
     "astro": "^7.4.12",
     "astro-icon": "^1.2.0"
