@@ -6,9 +6,21 @@ on:
   repository_dispatch:
     types: [sveltia-cms-publish]
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -24,10 +36,18 @@ jobs:
       - name: Build Astro
         run: bun run build
 
-      - name: Deploy to Surge
-        uses: mahmoudgalalz/surge-action@v0.1.5
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          domain: 'melissa-portfolio.surge.sh'
-          path: './dist'
-        env:
-          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+          path: ./dist
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      # - name: Deploy to Surge
+      #   uses: mahmoudgalalz/surge-action@v0.1.5
+      #   with:
+      #     domain: 'melissa-portfolio.surge.sh'
+      #     path: './dist'
+      #   env:
+      #     SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}

@@ -7,6 +7,8 @@ import { cmsConfig } from '@/cms/config'
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://trev7or23.github.io',
+  base: '/melissa-portfolio',
   integrations: [
     sveltia({ config: cmsConfig, githubOAuth: false }),
     icon({
