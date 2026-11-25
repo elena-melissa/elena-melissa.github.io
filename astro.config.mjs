@@ -5,10 +5,12 @@ import sveltia from '@sourcepoetry/astro-sveltia'
 import icon from 'astro-icon'
 import { cmsConfig } from '@/cms/config'
 
+import sitemap from '@astrojs/sitemap'
+
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://trev7or23.github.io',
-  base: '/melissa-portfolio',
+  site: 'https://melissa-eik.pages.dev',
+
   integrations: [
     sveltia({ config: cmsConfig, githubOAuth: false }),
     icon({
@@ -33,6 +35,7 @@ export default defineConfig({
         ],
       },
     }),
+    sitemap(),
   ],
   vite: {
     plugins: [tailwindcss()],
