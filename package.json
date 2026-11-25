@@ -15,6 +15,7 @@
     "format": "prettier . --write"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.6",
     "@iconify-json/mdi": "^1.2.3",
     "@sourcepoetry/astro-sveltia": "^0.1.1",
     "@tailwindcss/vite": "^4.3.5",
