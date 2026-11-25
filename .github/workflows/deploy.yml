@@ -1,4 +1,4 @@
-name: Deploy to Surge
+name: Deploy to GitHub Pages and Surge
 
 on:
   push:
@@ -16,11 +16,11 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+  # ============================================
+  # JOB 1: BUILD
+  # ============================================
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -40,14 +40,28 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
+
+  # ============================================
+  # JOB 2: DEPLOY
+  # ============================================
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
+      #
+      # # ============================================
+      # # SECCIÓN: Deploy to Surge
+      # # ============================================
       # - name: Deploy to Surge
       #   uses: mahmoudgalalz/surge-action@v0.1.5
       #   with:
-      #     domain: 'melissa-portfolio.surge.sh'
-      #     path: './dist'
+      #     domain: "melissa-portfolio.surge.sh"
+      #     path: "./dist"
       #   env:
       #     SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
